@@ -31,9 +31,17 @@
    text-align: center;
    color: black;
  }
+
+ body {
+   font-family: "Amatic SC";
+   font-size: 20px;
+   text-align: center;
+   color: black;
+ }
+
 </style>
 
-
+<body>
 <form method="post" action="/collections/<%= @collection.id %>/edit">
   <input type="hidden" name="_method" value="patch">
 
@@ -52,3 +60,5 @@
 <button onclick="location.href='/collections/<%= @collection.id %>'">Cancel</button>
 
 <button onclick="location.href='/'">Home</button>
+
+<body>
