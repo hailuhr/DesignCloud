@@ -68,8 +68,8 @@ class CollectionController < ApplicationController
 
   patch "/collections/:id/edit" do
     @collection = Collection.find_by_id(params[:id])
-    #update with params name
     if !params[:name].empty?
+      #pseudo code for image url
       @collection.update(:name => params[:name])
       @collection.save
       redirect "/collections/#{@collection.id}"
@@ -91,27 +91,7 @@ class CollectionController < ApplicationController
 
 
 
-
-
 end
 
-# <p> Into DesignCloud you go, <%= @user.username %></p>
-# <% User.all.each do |user| %>
-# <% user.collections.each do |collection| %>
-# <% collection.images.each do |image| %>
-# <%= image %>
-# <% end %>
-# <% end %>
-#
-#
-# <% Image.all.each do |image| %>
-# <%= image %>
-# <% end %>
 
-#list of collections - home
-#link to create new collection - home
-#input for name
-#input for url
-
-
-#show page - inside the individual collection
+## index home page copyright by 
