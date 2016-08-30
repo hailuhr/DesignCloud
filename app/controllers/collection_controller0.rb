@@ -8,16 +8,24 @@ class CollectionController < ApplicationController
 
   get "/collections" do
     # if is_logged_in?
-    # if session[:user_id]
+    if session[:user_id]
       @user = current_user
       @collections = Collection.all
       erb :"collections/collections"
-      #(make collectins name into href link in erb)
-    # else
-      # redirect "/login"
-    # end
+      #(make collections name into href link in erb)
+    else
+      redirect "/login"
+    end
   end
   ######## see below for more code for the erb file
+
+  get "/collections/new" do
+    if is_logged_in?
+      erb :"/collections/new"
+    else
+      redirect "/login"
+    end
+  end
 
 
   get "/collections/:id" do
@@ -30,13 +38,7 @@ class CollectionController < ApplicationController
   end
 
 
-  get "/collections/new" do
-    if is_logged_in?
-      erb :"/collections/new"
-    else
-      redirect "/login"
-    end
-  end
+
 
 
   post "/collections/new" do
@@ -66,15 +68,14 @@ class CollectionController < ApplicationController
     if !params[:name].empty?
       @collection.update(:name => params[:name])
       @collection.save
+      redirect "/collections/#{@collection.id}"
     else
       redirect "/collections/#{@collection.id}/edit"
     end
 
   end
 
-
-
-  delete "collections/:id/delete" do
+  get "/collections/:id/delete" do
     @collection = Collection.find_by_id(params[:id])
     if is_logged_in? && @collection.user_id == current_user.id
       @collection.delete
@@ -83,6 +84,9 @@ class CollectionController < ApplicationController
       redirect "/login"
     end
   end
+
+
+
 
 
 end
