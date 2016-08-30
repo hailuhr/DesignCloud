@@ -19,7 +19,8 @@ class UserController < ApplicationController
        session[:user_id] = @user.id
        redirect '/collections'
     else
-        redirect '/login'
+        "Fill in all information"
+        redirect '/signup'
       end
     end
 
@@ -58,7 +59,7 @@ class UserController < ApplicationController
     end
     ##################
 
-    
+
 
 end
 

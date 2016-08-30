@@ -8,6 +8,6 @@ All collections:
 
 <br></br>
 
-
-<button onclick="location.href='/collections/new'">New Collection</button>
-<button onclick="location.href='/logout'">Logout</button>
+<%if is_logged_in? %>
+  <button onclick="location.href='/collections/new'">New Collection</button>
+<% end %>
