@@ -6,13 +6,15 @@
 <% end %>
 
 
+<% if is_logged_in? && @collection.user_id == current_user.id %>
 <button onclick="location.href='/collections/<%=@collection.id%>/delete'">Delete Collection</button>
 
 <button onclick="location.href='/collections/<%=@collection.id%>/edit'">Edit Collection</button>
 
+<% elsif is_logged_in? %>
 <button onclick="location.href='/logout'">Logout</button>
+<% else %>
+<button onclick="location.href='/signup'">Sign Up</button>
+<% end %>
 
-<br></br>
-<br></br>
-<br></br>
 <button onclick="location.href='/collections'">All Collections</button>

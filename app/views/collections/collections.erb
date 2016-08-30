@@ -9,5 +9,12 @@ All collections:
 <br></br>
 
 
+<% if is_logged_in? %>
 <button onclick="location.href='/collections/new'">New Collection</button>
 <button onclick="location.href='/logout'">Logout</button>
+<% end %>
+
+
+<% if !is_logged_in? %>
+<button onclick="location.href='/signup'">Sign Up for DesignCloud</button>
+<% end %>

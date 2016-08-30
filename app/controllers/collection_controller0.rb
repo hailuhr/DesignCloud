@@ -14,7 +14,7 @@ class CollectionController < ApplicationController
       erb :"collections/collections"
       #(make collections name into href link in erb)
     else
-      redirect "/collections/collections_visitor"
+      erb :"/collections/collections"
     end
   end
   ######## see below for more code for the erb file
@@ -34,10 +34,10 @@ class CollectionController < ApplicationController
 
     if !is_logged_in? || @collection.user_id != current_user.id
       @collection = Collection.find_by_id(params[:id])
-      erb :"/collections/visitor_view"
+      erb :"/collections/show"
     else
       @collection = Collection.find_by_id(params[:id])
-      erb :"/collections/user_view"
+      erb :"/collections/show"
     end
 
   end
