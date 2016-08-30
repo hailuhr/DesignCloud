@@ -2,6 +2,10 @@ All collections:
 
 <%@collections.each do |collection| %>
 
-<p><%= collection.name %></p>
+  <p><a href="/collections/<%=collection.id%>"><%= collection.name %></a></p>
 
 <% end %>
+
+<br></br>
+
+<button onclick="location.href='/collections/new'">New Collection</button>

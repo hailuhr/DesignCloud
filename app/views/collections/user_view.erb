@@ -1,0 +1,16 @@
+<p><%= @collection.name %></p>
+<br></br>
+
+<% @collection.images.each do |image| %>
+<%= image.url %>
+<% end %>
+
+
+<button onclick="location.href='/collections/<%=@collection.id%>/delete'">Delete Collection</button>
+
+<button onclick="location.href='/collections/<%=@collection.id%>/edit'">Edit Collection</button>
+
+<br></br>
+<br></br>
+<br></br>
+<button onclick="location.href='/collections'">All Collections</button>

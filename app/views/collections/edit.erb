@@ -1,7 +1,16 @@
 <form method="post" action="/collections/<%= @collection.id %>/edit">
   <input type="hidden" name="_method" value="patch">
 
-  <p><input type="text" name="name"><%= @collection.name %></p>
+  <p>DesignCloud Name: <input type="text" name="name" value="<%= @collection.name %>"</p>
 
-  <button type="submit" value="submit">submit</button>
+  <p>Add image (url form): <input type="text" name="url"></p>
+
+  <button type="submit" value="submit">Make Changes</button>
 </form>
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<button onclick="location.href='/collections'">All Collections</button>

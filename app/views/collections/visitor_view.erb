@@ -1,0 +1,6 @@
+<p><%= @collection.name %></p>
+<br></br>
+
+<% @collection.images.each do |image| %>
+<%= image.url %>
+<% end %>

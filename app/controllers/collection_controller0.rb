@@ -28,15 +28,18 @@ class CollectionController < ApplicationController
   end
 
 
-  get "/collections/:id" do
-    if is_logged_in?
-      @collection = Collection.find_by_id(params[:id])
-      erb :"/collections/show"
-    else
-      redirect "/login"
-    end
-  end
 
+  get "/collections/:id" do
+    @collection = Collection.find_by_id(params[:id])
+
+    if @collection.user_id == current_user.id
+      @collection = Collection.find_by_id(params[:id])
+      erb :"/collections/user_view"
+    else
+      erb :"/collections/visitor_view"
+    end
+
+  end
 
 
 
