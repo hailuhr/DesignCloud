@@ -1,0 +1,7 @@
+<form method="post" action="/collections/<%= @collection.id %>/edit">
+  <input type="hidden" name="_method" value="patch">
+
+  <p><input type="text" name="content"><%= @collection.name %></p>
+
+  <button type="submit" value="submit">submit</button>
+</form>
