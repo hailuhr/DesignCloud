@@ -5,6 +5,6 @@ require './config/environment'
 # end
 
 use Rack::MethodOverride
-use UserController
-use CollectionController
+use UsersController
+use CollectionsController
 run ApplicationController

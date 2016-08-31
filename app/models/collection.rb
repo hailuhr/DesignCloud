@@ -6,4 +6,3 @@ class Collection < ActiveRecord::Base
 end
 
 
-#images - similar to songs, would be a database of images

@@ -1,9 +1,30 @@
-<!doctype html>
-<html>
-<head>
-</head>
-<body>
-  <%= yield %>
+<style>
+  header {
+    text-align: left;
+  }
 
-</body>
+  footer {
+    text-align: left;
+  }
+
+  body {
+    font: Avenir;
+  }
+</style>
+<html>
+  <head>
+    <title>DesignCloud</title>
+  </head>
+  <body>
+    <header>
+      Design Cloud
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      &copy; Hanna & Paige
+    </footer>
+
+  </body>
 </html>
