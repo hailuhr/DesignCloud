@@ -6,6 +6,5 @@ require './config/environment'
 
 use Rack::MethodOverride
 use UserController
-use ImageController
 use CollectionController
 run ApplicationController
