@@ -1,23 +1,15 @@
-<!DOCTYPE html>
+<div class="container">
+  <form method="post" action="/collections/new">
 
-<html>
+     <h1>Create a New DesignCloud Collection</h1>
 
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Amatic+SC" />
+     <p>Collection Name: <input type="text" id="name" name="name"></p>
+     <br></br>
 
+    <input type="submit" class="btn btn-primary" value="Create New Collection">
+  </form>
 
-<form method="post" action="/collections/new">
+  <button onclick="location.href='/collections'" class="btn btn-primary">Cancel</button>
+</div>
 
-   <h1>Create a New DesignCloud Collection</h1>
-
-   <h3>Collection Name: <input type="text" id="name" name="name"></h3>
-
-   <!-- few input boxes to put starter url's? -->
-
-  <button type="submit" class="btn btn-primary" value="submit">Make New Collection</button>
-</form>
-
-<button onclick="location.href='/collections'" class="btn btn-primary">Cancel</button>
-<!-- <button onclick="location.href='/logout'">Logout</button> -->
-
-<!-- <button onclick="location.href='/'">Home</button> -->
 

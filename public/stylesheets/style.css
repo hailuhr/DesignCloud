@@ -30,8 +30,11 @@
   p {
    font-family: Avenir;
    font-size: 20px;
-   /*text-align: left;*/
    color: black;
+  }
+
+  p.left {
+    text-align: left;
   }
 
   .container {
