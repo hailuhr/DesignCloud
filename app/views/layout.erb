@@ -63,6 +63,8 @@
                 <% if is_logged_in? %>
                   <li role="separator" class="divider">
                   <li><a href="/logout">Logout</a></li>
+                  <% else %>
+                    <li><a href="/">Login & Signup</a></li>
                 <% end %>
                 </ul>
               </li>
