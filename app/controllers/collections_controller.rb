@@ -22,13 +22,10 @@ class CollectionsController < ApplicationController
     @collections = []
     @all_without_user = []
 
-    @username = ""
-
     if !is_logged_in?
       @username = "Guest"
     else
-      @user = current_user
-      @username = @user.username
+      @username = current_user.username
     end
 
     Collection.all.each do |collection|
