@@ -7,7 +7,9 @@
    <div class="row">
       <% @collection.images.each do |image| %>
          <div class="col-md-4 col-sm-6 column">
-         <% if is_logged_in? && @collection.user_id == current_user.id %>
+         <!-- ++<a href=<* image.generate_link(current_user) %> class="thumbnail"><img src="<* image.url %>"></a> -->
+         
+         <% if @collection.user == current_user %>
                <a href="/collections/image/<%=image.id%>" class="thumbnail"><img src="<%= image.url %>"></a>
          <% else %> 
                <a href="<%= image.url %>" class="thumbnail" target="_blank"><img src="<%= image.url %>"></a>
@@ -17,11 +19,12 @@
    </div>
 </div>
 
-
+<div class="container">
 <% if is_logged_in? && @collection.user_id == current_user.id %>
-   <button onclick="location.href='/collections/<%=@collection.id%>/delete'" class="btn btn-primary">Delete Collection</button>
+   <button onclick="location.href='/collections/<%=@collection.id%>/edit'" class="btn btn-primary">Edit Collection</button>
 
-   <button onclick="location.href='/collections/<%=@collection.id%>/edit'" class="btn btn-primary">Add Images</button>
+   <button onclick="location.href='/collections/<%=@collection.id%>/delete'" class="btn btn-primary">Delete Collection</button>
 <%end %>
+</div>
   
 
