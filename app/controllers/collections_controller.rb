@@ -18,7 +18,7 @@ class CollectionsController < ApplicationController
     end
   end
 
-  get "/collections/discover" do 
+  get "/collections/discover" do
     @collections = []
     @all_without_user = []
     Collection.all.each do |collection|
