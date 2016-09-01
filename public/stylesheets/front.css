@@ -31,9 +31,24 @@ h2 {
     right: 10%;
   }
 }
+@keyframes float_2 {
+  0% {
+    bottom: 10%;
+    left: 10%;
+  }
+  50% {
+    bottom: 12%;
+    left: 16%;
+  }
+  100% {
+    bottom: 10%;
+    left: 10%;
+  }
+}
 
 .cloud {
   opacity: 0.8;
+  position: relative;
   /*top: 20%;*/
   animation: float 15s infinite;
 }
@@ -43,8 +58,11 @@ h2 {
   height: 150px;
   background: linear-gradient(1deg, #add8e6, #87ceeb);
   border-radius: 100px;
+  /*position: absolute;
+  margin-top: 2%;*/
   position: absolute;
-  margin-top: 2%;
+  top: 10%;
+  right: 10%;
 }
 
 .small-cloud-top {
@@ -72,9 +90,10 @@ h2 {
   height: 150px;
   background: linear-gradient(1deg, #add8e6, #87ceeb);
   border-radius: 100px;
-  position: absolute;
+  /*position: absolute;
   left: 16%;
-  margin-top: 15%;
+  margin-top: 15%;*/
+  animation: float_2 15s infinite;
 }
 
 .small-cloud-top-2 {
@@ -109,7 +128,7 @@ a:visited {
 
 a:hover {
     text-decoration: none;
-    /*background: hotpink;*/ 
+    /*background: hotpink;*/
     color: hotpink;
 }
 
