@@ -30,8 +30,12 @@
   p {
    font-family: Avenir;
    font-size: 20px;
-   text-align: left;
+   /*text-align: left;*/
    color: black;
+  }
+
+  .container {
+    text-align: center;
   }
 
   .view-collections .column {

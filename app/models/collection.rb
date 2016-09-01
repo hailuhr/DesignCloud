@@ -15,7 +15,6 @@ class Collection < ActiveRecord::Base
     end
   end
 
- 
 
 end
 
