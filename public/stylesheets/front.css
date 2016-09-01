@@ -1,0 +1,120 @@
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Amatic+SC" />
+
+body {
+  font-color: black;
+}
+
+h1 {
+  font-size: 170px;
+  font-family: "Amatic SC";
+  tet-align: center;
+  margin-top: 5%;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: Avenir;
+  text-align: center;
+}
+
+@keyframes float {
+  0% {
+    top: 10%;
+    right: 10%;
+  }
+  50% {
+    top: 12%;
+    right: 16%;
+  }
+  100% {
+    top: 10%;
+    right: 10%;
+  }
+}
+
+.cloud {
+  opacity: 0.8;
+  /*top: 20%;*/
+  animation: float 15s infinite;
+}
+
+.cloud-body {
+  width: 300px;
+  height: 150px;
+  background: linear-gradient(1deg, #add8e6, #87ceeb);
+  border-radius: 100px;
+  position: absolute;
+  margin-top: 2%;
+}
+
+.small-cloud-top {
+  height: 45px;
+  width: 90px;
+  border-radius: 90px 90px 0 0;
+  background: #87ceeb;
+  position: relative;
+  bottom: 40px;
+  left: 50px;
+}
+
+.big-cloud-top {
+  height: 60px;
+  width: 120px;
+  border-radius: 120px 120px 0 0;
+  background: #87ceeb;
+  position: relative;
+  bottom: 100px;
+  left: 120px;
+}
+
+.cloud-body-2 {
+  width: 300px;
+  height: 150px;
+  background: linear-gradient(1deg, #add8e6, #87ceeb);
+  border-radius: 100px;
+  position: absolute;
+  left: 16%;
+  margin-top: 15%;
+}
+
+.small-cloud-top-2 {
+  height: 45px;
+  width: 90px;
+  border-radius: 90px 90px 0 0;
+  background: #87ceeb;
+  position: relative;
+  bottom: 40px;
+  left: 50px;
+}
+
+.big-cloud-top-2 {
+  height: 60px;
+  width: 120px;
+  border-radius: 120px 120px 0 0;
+  background: #87ceeb;
+  position: relative;
+  bottom: 100px;
+  left: 120px;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    /*background: hotpink;*/ 
+    color: hotpink;
+}
+
+a:active {
+    text-decoration: none;
+    background: hotpink;
+    color: white;
+}
