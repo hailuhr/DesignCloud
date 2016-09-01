@@ -11,7 +11,7 @@
             </div>
             <p>By user: <%= collection.user.username %></p>
 
-            <% if collection.images == [] %>
+            <% if collection.images.empty? %>
               <img src="/happy_cloud.png">
             <% else %>
               <img src="<%= collection.images[0].url %>">
@@ -21,7 +21,3 @@
     <% end %>
   </div>
 </div>
-
-<!-- <button onclick="location.href='/collections'">My Collections</button> -->
-<!-- <button onclick="location.href='/logout'">Logout</button>
- -->
