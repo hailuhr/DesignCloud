@@ -19,30 +19,13 @@ class CollectionsController < ApplicationController
   end
 
   get "/collections/discover" do
-    # @collections = []
-    # @all_without_user = []
-
     if !is_logged_in?
       @username = "Guest"
     else
       @username = current_user.username
     end
 
-    # # Collection.random_selection(current_user)
-    # Collection.all.each do |collection|
-    #   if !is_logged_in? || collection.user_id != current_user.id
-    #     @all_without_user << collection
-    #   end
-    # end
-
-    # # sample can take a parameter of the num elements you want to sample with no dups
-    # 10.times do
-    #   @instance = @all_without_user.sample
-    #   @collections << @instance
-    #   @all_without_user.delete(@instance)
-    # end
     @collections = Collection.random_selection(current_user)
-
     erb :"collections/discover"
   end
 
@@ -57,7 +40,7 @@ class CollectionsController < ApplicationController
     end
   end
 
-  post "/collections/new" do
+  post "/collections" do
     if !params[:name].empty?
       @user = User.find_by_id(session[:user_id])
       @collection = Collection.create(name: params[:name], user_id: @user.id)
@@ -76,7 +59,19 @@ class CollectionsController < ApplicationController
     end
   end
 
-  patch "/collections/:id/edit" do
+  patch "/images/:id" do
+    @image = Image.find_by_id(params[:id])
+    if params[:url] != ""
+      @image.update(url: params[:url])
+      @image.save
+      redirect "/collections/#{@image.collection_id}"
+    else
+      redirect "/collections/image/#{@image.id}"
+    end
+  end
+
+
+  patch "/collections/:id" do
     @collection = Collection.find_by_id(params[:id])
     if !params[:name].empty?
       #pseudo code for image url
@@ -105,21 +100,11 @@ class CollectionsController < ApplicationController
     end
   end
 
-  get "/collections/image/:id" do
+  get "/images/:id" do
     @image = Image.find_by_id(params[:id])
     erb :"collections/image"
   end
 
-  patch "/collections/image/:id" do
-    @image = Image.find_by_id(params[:id])
-    if params[:url] != ""
-      @image.update(url: params[:url])
-      @image.save
-      redirect "/collections/#{@image.collection_id}"
-    else
-      redirect "/collections/image/#{@image.id}"
-    end
-  end
 
   get "/collections/delete_image/:id" do
     @image = Image.find_by_id(params[:id])

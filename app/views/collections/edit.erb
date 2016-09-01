@@ -1,4 +1,4 @@
-<form method="post" action="/collections/<%= @collection.id %>/edit">
+<form method="post" action="/collections/<%= @collection.id %>">
   <input type="hidden" name="_method" value="patch">
 
   <p>Collection Name: <input type="text" name="name" value="<%= @collection.name %>"</p>
@@ -8,10 +8,9 @@
   <p>Add Image URL: <input type="text" name="links[url_3]"></p>
   <p>Add Image URL: <input type="text" name="links[url_4]"></p>
   <p>Add Image URL: <input type="text" name="links[url_5]"></p>
-    
+
 
   <input type="submit" class="btn btn-primary" value="Submit">
 </form>
 
 <button onclick="location.href='/collections/< @collection.id %>'" class="btn btn-primary">Cancel</button>
-

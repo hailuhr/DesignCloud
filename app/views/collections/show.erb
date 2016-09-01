@@ -1,5 +1,5 @@
 <h1><%= @collection.name %></h1>
-<% if is_logged_in? && @collection.user_id == current_user.id %>
+<% if @collection.owner?(current_user) %>
    <h3>Click on an image to edit the URL or delete it</h3>
 <% end %>
 
@@ -7,24 +7,17 @@
    <div class="row">
       <% @collection.images.each do |image| %>
          <div class="col-md-4 col-sm-6 column">
-         <!-- ++<a href=<* image.generate_link(current_user) %> class="thumbnail"><img src="<* image.url %>"></a> -->
-         
-         <% if @collection.user == current_user %>
-               <a href="/collections/image/<%=image.id%>" class="thumbnail"><img src="<%= image.url %>"></a>
-         <% else %> 
-               <a href="<%= image.url %>" class="thumbnail" target="_blank"><img src="<%= image.url %>"></a>
-         <% end %>
+         <a href="<%= image.generate_link(current_user) %>" class="thumbnail"><img src="<%= image.url %>"></a>
+
          </div>
       <% end %>
    </div>
 </div>
 
 <div class="container">
-<% if is_logged_in? && @collection.user_id == current_user.id %>
+<% if @collection.owner?(current_user) %>
    <button onclick="location.href='/collections/<%=@collection.id%>/edit'" class="btn btn-primary">Edit Collection</button>
 
    <button onclick="location.href='/collections/<%=@collection.id%>/delete'" class="btn btn-primary">Delete Collection</button>
 <%end %>
 </div>
-  
-

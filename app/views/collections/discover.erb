@@ -12,7 +12,7 @@
                <p>By: <%= collection.user.username %></p>
              </div>
 
-             <% if collection.images == [] %>
+             <% if collection.images.empty? %>
                <img src="/error_cloud.png">
              <% else %>
                <img src="<%= collection.images[0].url %>">
@@ -23,4 +23,3 @@
    <% end %>
  </div>
 </div>
-

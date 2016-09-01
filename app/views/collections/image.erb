@@ -14,7 +14,7 @@
       <a href="<%= @image.url %>" class="thumbnail"><img src="<%= @image.url %>"></a>
       <div class="caption">
         <p>
-          <form action="/collections/image/<%= @image.id %>" method="post">
+          <form action="/images/<%= @image.id %>" method="post">
             <input type="hidden" name="_method" value="patch">
 
             <label>Change Url:</label>
