@@ -18,20 +18,30 @@ class CollectionsController < ApplicationController
     end
   end
 
-  get "/collections/discover" do 
+  get "/collections/discover" do
     @collections = []
     @all_without_user = []
-    Collection.all.each do |collection|
-      if collection.user_id != current_user.id
-        @all_without_user << collection 
-      end 
-    end 
 
-    10.times do 
-      @instance = @all_without_user.sample 
+    @username = ""
+
+    if !is_logged_in?
+      @username = "Guest"
+    else
+      @user = current_user
+      @username = @user.username
+    end
+
+    Collection.all.each do |collection|
+      if !is_logged_in? || collection.user_id != current_user.id
+        @all_without_user << collection
+      end
+    end
+
+    10.times do
+      @instance = @all_without_user.sample
       @collections << @instance
       @all_without_user.delete(@instance)
-    end 
+    end
 
     erb :"collections/discover"
   end
@@ -72,11 +82,11 @@ class CollectionsController < ApplicationController
       #pseudo code for image url
       @collection.update(name: params[:name])
       params[:links].each do |k, url|
-        if url != "" 
+        if url != ""
           @image = Image.new(url: url)
           @collection.images << @image
           @collection.save
-        end 
+        end
       end
       redirect "/collections/#{@collection.id}"
     else
@@ -95,12 +105,12 @@ class CollectionsController < ApplicationController
     end
   end
 
-  get "/collections/image/:id" do  
+  get "/collections/image/:id" do
     @image = Image.find_by_id(params[:id])
     erb :"collections/image"
   end
 
-  patch "/collections/image/:id" do 
+  patch "/collections/image/:id" do
     @image = Image.find_by_id(params[:id])
     if params[:url] != ""
       @image.update(url: params[:url])
@@ -113,7 +123,7 @@ class CollectionsController < ApplicationController
 
   get "/collections/delete_image/:id" do
     @image = Image.find_by_id(params[:id])
-    @image.delete 
+    @image.delete
     redirect "/collections/#{@image.collection_id}"
   end
 
@@ -121,5 +131,3 @@ class CollectionsController < ApplicationController
 
 
 end
-
-
