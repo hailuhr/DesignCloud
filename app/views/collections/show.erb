@@ -1,55 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Amatic+SC" />
-<!-- <style>
- /*header {
-   width: 100%;
-   height: 250px;
-   background-color: lightblue;
-   position: absolute;
- }*/
-
- h1 {
-   font-family: "Amatic SC";
-   font-size: 80px;
-   text-align: center;
-   color: black;
- }
-
- p {
-   font-family: "Amatic SC";
-   font-size: 40px;
-   text-align: center;
-   color: black;
- }
-
- button {
-   font-family: "Amatic SC";
-   font-size: 20px;
-   text-align: center;
-   color: black;
- }
-
- body {
-   font-family: "Amatic SC";
-   font-size: 20px;
-   text-align: center;
-   color: black;
- }
-
-.gallery .column {
-   height: 300px;
-   padding: 10px;
-}
-
- .gallery .thumbnail img {
-   width: 100%;
-   height: 250px;
- }
-</style>
- -->
 <h1><%= @collection.name %></h1>
 <% if is_logged_in? && @collection.user_id == current_user.id %>
    <h3>Click on an image to edit the URL or delete it</h3>
@@ -75,11 +23,5 @@
 
    <button onclick="location.href='/collections/<%=@collection.id%>/edit'" class="btn btn-primary">Add Images</button>
 <%end %>
-   <!-- <button onclick="location.href='/collections'">My Collections</button> -->
-<!-- < elsif is_logged_in? > -->
-   <!-- <button onclick="location.href='/logout'">Logout</button>
-   <button onclick="location.href='/collections'">My Collections</button> -->
-<!-- < else %> -->
-   <!-- <button onclick="location.href='/signup'">Sign Up</button> -->
-<!-- < end %> -->
+  
 
