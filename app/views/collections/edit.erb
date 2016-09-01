@@ -11,7 +11,7 @@
    position: absolute;
  }*/
 
- h1 {
+ /*h1 {
    font-family: "Amatic SC";
    font-size: 80px;
    text-align: center;
@@ -37,11 +37,10 @@
    font-size: 20px;
    text-align: center;
    color: black;
- }
+ }*/
 
 </style>
 
-<body>
 <form method="post" action="/collections/<%= @collection.id %>/edit">
   <input type="hidden" name="_method" value="patch">
 
@@ -54,16 +53,14 @@
   <p>Add Image URL: <input type="text" name="links[url_5]"></p>
     
 
-  <button type="submit" value="submit">Make Changes</button>
+  <button type="submit" class="btn btn-primary" value="submit">Make Changes</button>
 </form>
 
-
 <br></br>
 <br></br>
-<button onclick="location.href='/collections'">My Collections</button>
-<button onclick="location.href='/logout'">Logout</button>
-<button onclick="location.href='/collections/<%= @collection.id %>'">Cancel</button>
+<!-- <button onclick="location.href='/collections'">My Collections</button> -->
+<!-- <button onclick="location.href='/logout'">Logout</button> -->
+<button onclick="location.href='/collections/< @collection.id %>'" class="btn btn-primary">Cancel</button>
 
-<button onclick="location.href='/'">Home</button>
+<!-- <button onclick="location.href='/'">Home</button> -->
 
-<body>
