@@ -19,10 +19,12 @@
 
    <% if is_logged_in? && @collection.user_id == current_user.id %>
       
-      <p>Click on an image to edit the URL or delete it</p>
+      <br></br>
+      <p>Click on an image to edit its URL or delete the image.</p>
+      <br></br>
 
       <button onclick="location.href='/collections/<%=@collection.id%>/edit'" class="btn btn-primary">Edit Collection</button>
-
+      
       <button onclick="location.href='/collections/<%=@collection.id%>/delete'" class="btn btn-primary">Delete Collection</button>
    <%end %>
 </div>
