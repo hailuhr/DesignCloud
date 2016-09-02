@@ -13,8 +13,8 @@ class UsersController < ApplicationController
    if !params[:username].empty? && !params[:password].empty? && !params[:email].empty?
      @user = User.create(params)
      session[:user_id] = @user.id
-     redirect '/collections/discover'
-  else
+     redirect "/collections/discover"
+    else
       "Fill in all information"
       redirect '/signup'
     end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
 
-  post '/login' do
+  post "/login" do
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
@@ -49,10 +49,10 @@ class UsersController < ApplicationController
     end
   end
 
-  get "/users/:slug" do
-    @user = User.find_by_slug(params[:slug])
-    redirect "/collections/show"
-  end
+  # get "/users/:slug" do
+  #   @user = User.find_by_slug(params[:slug])
+  #   redirect "/collections/show"
+  # end
 
 end
 

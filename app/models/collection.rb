@@ -16,6 +16,11 @@ class Collection < ActiveRecord::Base
   end
 
 
+  def owner?(user)
+    self.user == user
+  end
+
+  
 end
 
 

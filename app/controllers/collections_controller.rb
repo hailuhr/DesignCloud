@@ -6,7 +6,7 @@ class CollectionsController < ApplicationController
       @collections = @user.collections
       erb :"collections/collections"
     else
-      erb :error
+      redirect "/login"
     end
   end
 
@@ -24,48 +24,41 @@ class CollectionsController < ApplicationController
     else
       @username = current_user.username
     end
+    
     @collections = Collection.random_selection(current_user)
-
     erb :"collections/discover"
   end
 
   get "/collections/:id" do
     @collection = Collection.find_by_id(params[:id])
-    if !is_logged_in? || @collection.user_id != current_user.id
-      @collection = Collection.find_by_id(params[:id])
-      erb :"collections/show"
-    else
-      @collection = Collection.find_by_id(params[:id])
-      erb :"collections/show"
-    end
+    erb :"collections/show"
   end
 
-  post "/collections/new" do
+  post "/collections" do
     if !params[:name].empty?
       @user = User.find_by_id(session[:user_id])
       @collection = Collection.create(name: params[:name], user_id: @user.id)
       redirect "/collections/#{@collection.id}"
     else
-      redirect '/collections/new'
+      redirect "/collections/new"
     end
   end
 
   get "/collections/:id/edit" do
     @collection = Collection.find_by_id(params[:id])
-    if is_logged_in? && @collection.user_id == current_user.id
-      erb :"/collections/edit"
+    if @collection.owner?(current_user)
+      erb :"collections/edit"
     else
       redirect "/login"
     end
   end
 
-  patch "/collections/:id/edit" do
+  patch "/collections/:id" do
     @collection = Collection.find_by_id(params[:id])
     if !params[:name].empty?
-      #pseudo code for image url
       @collection.update(name: params[:name])
-      params[:links].each do |k, url|
-        if url != ""
+      params[:links].each do |key, url|
+        if !url.empty?
           @image = Image.new(url: url)
           @collection.images << @image
           @collection.save
@@ -80,7 +73,7 @@ class CollectionsController < ApplicationController
 
   get "/collections/:id/delete" do
     @collection = Collection.find_by_id(params[:id])
-    if is_logged_in? && @collection.user_id == current_user.id
+    if @collection.owner?(current_user)
       @collection.delete
       redirect "/collections"
     else
@@ -88,14 +81,9 @@ class CollectionsController < ApplicationController
     end
   end
 
-  get "/collections/image/:id" do
+  patch "/images/:id" do
     @image = Image.find_by_id(params[:id])
-    erb :"collections/image"
-  end
-
-  patch "/collections/image/:id" do
-    @image = Image.find_by_id(params[:id])
-    if params[:url] != ""
+    if !params[:url].empty?
       @image.update(url: params[:url])
       @image.save
       redirect "/collections/#{@image.collection_id}"
@@ -104,13 +92,17 @@ class CollectionsController < ApplicationController
     end
   end
 
-  get "/collections/delete_image/:id" do
+  delete "images/:id" do
     @image = Image.find_by_id(params[:id])
     @image.delete
     redirect "/collections/#{@image.collection_id}"
   end
 
+  get "/images/:id" do
+    @image = Image.find_by_id(params[:id])
+    erb :"collections/image"
+  end
 
-  #change post routes
+
 
 end

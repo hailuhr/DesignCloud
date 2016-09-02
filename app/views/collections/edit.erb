@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Edit Your Collection</h1>
   
-  <form method="post" action="/collections/<%= @collection.id %>/edit">
+  <form method="post" action="/collections/<%= @collection.id %>">
     <input type="hidden" name="_method" value="patch">
 
     <p>Collection Name: <input type="text" name="name" value="<%= @collection.name %>"</p>
