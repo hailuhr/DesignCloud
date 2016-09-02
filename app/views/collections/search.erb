@@ -1,0 +1,13 @@
+<div class="container">
+  
+  <h1>Search Results</h1>
+  
+  <p class="pink-text"><%= flash[:message] if flash %></p>
+  
+  <% @results.each do |result| %>
+    <h2><a href="/collections/<%= result.id %>"><%= result.name %></a></h2>
+    <p>By: <%= result.user.username %></p>
+    <br></br>
+  <% end %>
+
+</div>
