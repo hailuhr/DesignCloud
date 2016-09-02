@@ -6,7 +6,7 @@ class CollectionsController < ApplicationController
       @collections = @user.collections
       erb :"collections/collections"
     else
-      erb :"collections/collections"
+      erb :error
     end
   end
 
@@ -19,28 +19,11 @@ class CollectionsController < ApplicationController
   end
 
   get "/collections/discover" do
-    # @collections = []
-    # @all_without_user = []
-
     if !is_logged_in?
       @username = "Guest"
     else
       @username = current_user.username
     end
-
-    # # Collection.random_selection(current_user)
-    # Collection.all.each do |collection|
-    #   if !is_logged_in? || collection.user_id != current_user.id
-    #     @all_without_user << collection
-    #   end
-    # end
-
-    # # sample can take a parameter of the num elements you want to sample with no dups
-    # 10.times do
-    #   @instance = @all_without_user.sample
-    #   @collections << @instance
-    #   @all_without_user.delete(@instance)
-    # end
     @collections = Collection.random_selection(current_user)
 
     erb :"collections/discover"

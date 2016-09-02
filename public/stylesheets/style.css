@@ -90,6 +90,10 @@
     color: hotpink;
   }
 
+  a.pink-link {
+    color: hotpink;
+  }
+
   nav.navbar.navbar-default.navbar-light a:hover {
     text-decoration: none;
     color: hotpink ;
