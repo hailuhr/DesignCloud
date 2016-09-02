@@ -104,5 +104,13 @@ class CollectionsController < ApplicationController
   end
 
 
+  post "/search" do 
+    @results = Collection.where(name: params[:search_name])
+    # if @results.empty?
+    #   # flash[:message] = "No collections by that name."
+    # end 
+      erb :"collections/search"
+  end 
+
 
 end
