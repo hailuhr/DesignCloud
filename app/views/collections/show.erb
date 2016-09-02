@@ -1,4 +1,5 @@
 <h1><%= @collection.name %></h1>
+
 <% if @collection.owner?(current_user) %>
    <h3>Click on an image to edit the URL or delete it</h3>
 <% end %>
@@ -15,9 +16,9 @@
 </div>
 
 <div class="container">
-<% if @collection.owner?(current_user) %>
-   <button onclick="location.href='/collections/<%=@collection.id%>/edit'" class="btn btn-primary">Edit Collection</button>
+   <% if @collection.owner?(current_user) %>
+      <button onclick="location.href='/collections/<%=@collection.id%>/edit'" class="btn btn-primary">Edit Collection</button>
 
-   <button onclick="location.href='/collections/<%=@collection.id%>/delete'" class="btn btn-primary">Delete Collection</button>
-<%end %>
+      <button onclick="location.href='/collections/<%=@collection.id%>/delete'" class="btn btn-primary">Delete Collection</button>
+   <%end %>
 </div>

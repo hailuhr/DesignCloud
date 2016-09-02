@@ -1,3 +1,7 @@
+  .container {
+    text-align: center;
+  }
+
   h1 {
     font-family: "Amatic SC";
     font-size: 80px;
@@ -32,10 +36,6 @@
 
   p.left {
     text-align: left;
-  }
-
-  .container {
-    text-align: center;
   }
 
   .edit-url {
