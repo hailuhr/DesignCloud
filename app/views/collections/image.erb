@@ -1,4 +1,3 @@
-<h1>Edit Image</h1>
 <div class="container frame">
   <div class="row">
     <div class="col-xs-12">
@@ -6,18 +5,24 @@
       <a href="<%= @image.url %>" class="thumbnail"><img src="<%= @image.url %>"></a>
       <div class="caption">
         
-          <form action="/images" method="post">
+        <% if @image.collection.owner?(current_user) %>
+          <form action="/images/<%= @image.id %>" method="post">
             <input type="hidden" name="_method" value="patch">
 
             <label><p>Change Url:</p></label>
-            <input class="edit-url" type="text" name="url" value="<%= @image.url %>">
+            <input type="text" class="edit-url" name="url" value="<%= @image.url %>">
             <button type="submit" class="btn btn-primary" value="submit">Submit</button>
           </form>
+        <% end %>
           
-          <br></br>
-          <a href="/images/<%= @image.id %>" >
-            <button class="btn btn-primary">Delete Image</button>
-          </a>
+        <br></br>
+        
+         <% if @image.collection.owner?(current_user) %>
+           <form action="/images/<%= @image.id %>" method="post">
+             <input type="hidden" name="_method" value="delete">
+             <button type="submit" class="btn btn-primary" value="submit">Delete Image</button>
+           </form>
+         <% end %>
       
         <br></br>
         
