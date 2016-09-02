@@ -17,12 +17,12 @@
           
         <br></br>
         
-         <% if @image.collection.owner?(current_user) %>
-           <form action="/images/<%= @image.id %>" method="post">
-             <input type="hidden" name="_method" value="delete">
-             <button type="submit" class="btn btn-primary" value="submit">Delete Image</button>
-           </form>
-         <% end %>
+        <% if @image.collection.owner?(current_user) %>
+          <form action="/images/<%= @image.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn-primary" value="submit">Delete Image</button>
+          </form>
+        <% end %>
       
         <br></br>
         
