@@ -14,6 +14,7 @@
       <a href="<%= @image.url %>" class="thumbnail"><img src="<%= @image.url %>"></a>
       <div class="caption">
         <p>
+          <% if @image.collection.owner?(current_user) %>
           <form action="/images/<%= @image.id %>" method="post">
             <input type="hidden" name="_method" value="patch">
 
@@ -21,11 +22,16 @@
             <input type="text" name="url" value="<%= @image.url %>">
             <button type="submit" class="btn btn-primary" value="submit">Submit</button>
           </form>
+          <% end %>
+
         </p>
         <p>
-          <a href="/collections/delete_image/<%= @image.id %>" >
-            <button class="btn btn-primary">Delete Image</button>
-          </a>
+          <% if @image.collection.owner?(current_user) %>
+          <form action="/images/<%= @image.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn-primary" value="submit">Delete Image</button>
+          </form>
+          <% end %>
         </p>
       </div>
     </div>

@@ -6,7 +6,7 @@ class CollectionsController < ApplicationController
       @collections = @user.collections
       erb :"collections/collections"
     else
-      erb :"collections/collections"
+      erb :"index"
     end
   end
 
@@ -30,14 +30,8 @@ class CollectionsController < ApplicationController
   end
 
   get "/collections/:id" do
-    @collection = Collection.find_by_id(params[:id])
-    if !is_logged_in? || @collection.user_id != current_user.id
       @collection = Collection.find_by_id(params[:id])
       erb :"collections/show"
-    else
-      @collection = Collection.find_by_id(params[:id])
-      erb :"collections/show"
-    end
   end
 
   post "/collections" do
@@ -52,7 +46,7 @@ class CollectionsController < ApplicationController
 
   get "/collections/:id/edit" do
     @collection = Collection.find_by_id(params[:id])
-    if is_logged_in? && @collection.user_id == current_user.id
+    if @collection.owner?(current_user)
       erb :"/collections/edit"
     else
       redirect "/login"
@@ -74,7 +68,6 @@ class CollectionsController < ApplicationController
   patch "/collections/:id" do
     @collection = Collection.find_by_id(params[:id])
     if !params[:name].empty?
-      #pseudo code for image url
       @collection.update(name: params[:name])
       params[:links].each do |k, url|
         if url != ""
@@ -92,7 +85,7 @@ class CollectionsController < ApplicationController
 
   get "/collections/:id/delete" do
     @collection = Collection.find_by_id(params[:id])
-    if is_logged_in? && @collection.user_id == current_user.id
+    if @collection.owner?(current_user)
       @collection.delete
       redirect "/collections"
     else
@@ -100,16 +93,15 @@ class CollectionsController < ApplicationController
     end
   end
 
-  get "/images/:id" do
-    @image = Image.find_by_id(params[:id])
-    erb :"collections/image"
-  end
-
-
-  get "/collections/delete_image/:id" do
+  delete "/images/:id" do
     @image = Image.find_by_id(params[:id])
     @image.delete
     redirect "/collections/#{@image.collection_id}"
+  end
+
+  get "/images/:id" do
+    @image = Image.find_by_id(params[:id])
+    erb :"collections/image"
   end
 
 
