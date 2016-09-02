@@ -1,3 +1,4 @@
+<h1>Edit Image</h1>
 <div class="container frame">
   <div class="row">
     <div class="col-xs-12">
@@ -5,14 +6,15 @@
       <a href="<%= @image.url %>" class="thumbnail"><img src="<%= @image.url %>"></a>
       <div class="caption">
         
-          <form action="/collections/image/<%= @image.id %>" method="post">
+          <form action="/images" method="post">
             <input type="hidden" name="_method" value="patch">
 
             <label><p>Change Url:</p></label>
             <input class="edit-url" type="text" name="url" value="<%= @image.url %>">
             <button type="submit" class="btn btn-primary" value="submit">Submit</button>
           </form>
-
+          
+          <br></br>
           <a href="/collections/delete_image/<%= @image.id %>" >
             <button class="btn btn-primary">Delete Image</button>
           </a>

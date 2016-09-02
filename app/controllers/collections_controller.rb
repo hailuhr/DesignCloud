@@ -92,7 +92,7 @@ class CollectionsController < ApplicationController
     end
   end
 
-  delete "images/:id" do
+  delete "/images/:id" do
     @image = Image.find_by_id(params[:id])
     @image.delete
     redirect "/collections/#{@image.collection_id}"
