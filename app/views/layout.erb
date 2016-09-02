@@ -32,19 +32,19 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                 <% if is_logged_in? %>
-                    <li><a href="/collections">My Collections</a></li>
-                    <li><a href="/collections/new">New Collection</a></li>
+                  <li><a href="/collections">My Collections</a></li>
+                  <li><a href="/collections/new">New Collection</a></li>
                 <% end %>
-                  <li><a href="/collections/discover">Discover Collections</a></li>
+                  <li><a href="/collections/discover">Discover Collections</a></li> 
+                  <li role="separator" class="divider">
 
                  <!--  <li role="separator" class="divider"></li>
                   <li><a href="#">Separated link</a></li> -->
                   <!-- <li role="separator" class="divider"></li> -->
                 <% if is_logged_in? %>
-                  <li role="separator" class="divider">
                   <li><a href="/logout">Logout</a></li>
-                  <% else %>
-                    <li><a href="/">Login/Signup</a></li>
+                <% else %>
+                  <li><a href="/">Login / Signup</a></li>
                 <% end %>
                 </ul>
               </li>
