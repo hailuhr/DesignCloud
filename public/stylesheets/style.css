@@ -41,6 +41,14 @@
     text-align: center;
   }
 
+  .edit-url {
+    width: 65%;
+  }
+
+  .btn .btn-default {
+    left: 15px;
+  }
+
   .view-collections .column {
     padding: 20px;
   }
