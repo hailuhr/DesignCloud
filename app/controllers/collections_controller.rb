@@ -105,7 +105,8 @@ class CollectionsController < ApplicationController
 
 
   post "/search" do 
-    @results = Collection.where(name: params[:search_name])
+    query = params[:search_name]
+    @results = Collection.where('lower(name) = ?', query.downcase)
     if @results.empty?
       flash[:message] = "No collections by that name."
     end 

@@ -3,9 +3,6 @@ class Collection < ActiveRecord::Base
   has_many :images
   belongs_to :user
 
-  # def url_is_blank?
-  #   self.url.nil? || self.url.empty?
-  # end
 
   def self.random_selection(user)
     if user

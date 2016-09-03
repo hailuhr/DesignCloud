@@ -4,7 +4,7 @@
   <form method="post" action="/collections/<%= @collection.id %>">
     <input type="hidden" name="_method" value="patch">
 
-    <p>Collection Name: <input type="text" name="name" value="<%= @collection.name %>"</p>
+    <p class="larger-p">Collection Name: <input type="text" name="name" value="<%= @collection.name %>"</p>
     <br></br>
     <p>Add Image (URL): <input type="text" name="links[url_1]"></p>
     <p>Add Image (URL): <input type="text" name="links[url_2]"></p>
