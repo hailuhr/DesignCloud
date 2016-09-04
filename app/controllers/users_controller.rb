@@ -15,6 +15,7 @@ class UsersController < ApplicationController
      session[:user_id] = @user.id
      redirect "/collections/discover"
     else
+      flash[:message] = "Please fill out all fields."
       redirect '/signup'
     end
   end
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/collections/discover"
     else
+      flash[:message] = "Please enter a valid username and password."
       redirect "/login"
     end
   end

@@ -1,6 +1,9 @@
-<h1> DesignCloud Login </h1>
-
 <div class="container">
+  <h1> DesignCloud Login </h1>
+
+  <p class="pink-text"><%= flash[:message] if flash %></p>
+    <br></br>
+
   <form action="/login" method="post">
     
     <p>Username: <input type="text" name="username"></p>
