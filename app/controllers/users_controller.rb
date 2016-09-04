@@ -15,7 +15,6 @@ class UsersController < ApplicationController
      session[:user_id] = @user.id
      redirect "/collections/discover"
     else
-      "Fill in all information"
       redirect '/signup'
     end
   end
