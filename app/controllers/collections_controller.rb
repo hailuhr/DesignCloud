@@ -98,7 +98,7 @@ class CollectionsController < ApplicationController
     redirect "/collections/#{@image.collection_id}"
   end
 
-  get "/images/:id" do
+  get "/images/:id/edit" do
     @image = Image.find_by_id(params[:id])
     erb :"collections/image"
   end

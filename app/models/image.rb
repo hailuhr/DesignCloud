@@ -5,7 +5,7 @@ class Image < ActiveRecord::Base
   
   def generate_link(user)
     if user == self.collection.user
-      "/images/#{self.id}"
+      "/images/#{self.id}/edit"
     else
       "#{self.url}"
     end
