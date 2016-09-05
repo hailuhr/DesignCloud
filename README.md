@@ -1,6 +1,6 @@
 # DesignCloud
 
-Welcome to DesignCloud, a Sinatra app that allows you to create and edit collections of images. 
+Welcome to DesignCloud, a Sinatra app that allows you to create, edit, and view collections of images. 
 
 Here is a link to a walkthrough of the app: https://youtu.be/K2GIOu5k6r0
 
