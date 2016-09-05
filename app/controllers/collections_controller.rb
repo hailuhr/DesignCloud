@@ -109,6 +109,8 @@ class CollectionsController < ApplicationController
     @results = Collection.where('lower(name) = ?', query.downcase)
     if @results.empty?
       flash[:message] = "No collections by that name."
+    else 
+      flash[:message] = " " #without this, flash[:message] stays on page for next search
     end 
     erb :"collections/search"
   end 
