@@ -24,7 +24,7 @@ class CollectionsController < ApplicationController
     else
       @username = current_user.username
     end
-    
+
     @collections = Collection.random_selection(current_user)
     erb :"collections/discover"
   end
@@ -104,16 +104,16 @@ class CollectionsController < ApplicationController
   end
 
 
-  post "/search" do 
+  post "/search" do
     query = params[:search_name]
-    @results = Collection.where('lower(name) = ?', query.downcase)
+    @results = Collection.where('lower(name) = ?', query.strip.downcase)
     if @results.empty?
       flash[:message] = "No collections by that name."
-    else 
+    else
       flash[:message] = " " #without this, flash[:message] stays on page for next search
-    end 
+    end
     erb :"collections/search"
-  end 
+  end
 
 
 end

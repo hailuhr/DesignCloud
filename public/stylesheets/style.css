@@ -7,6 +7,10 @@ nav.navbar.navbar-default.navbar-light a:hover {
   color: hotpink ;
 }
 
+i.ion-search {
+  font-size: 140%;
+}
+
 h1 {
   font-family: "Amatic SC";
   font-size: 90px;
@@ -102,5 +106,3 @@ a:hover {
   width: 100%;
   height: 250px;
 }
-
-

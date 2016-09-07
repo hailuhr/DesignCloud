@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Edit Your Collection</h1>
-  
+
   <form method="post" action="/collections/<%= @collection.id %>">
     <input type="hidden" name="_method" value="patch">
 
@@ -12,11 +12,10 @@
     <p>Add Image URL: <input type="text" name="links[url_4]"></p>
     <p>Add Image URL: <input type="text" name="links[url_5]"></p>
     <br></br>
-      
+
 
     <input type="submit" class="btn btn-primary" value="Submit">
   </form>
 
-  <button onclick="location.href='/collections/<%= @collection.id %>'" class="btn btn-primary">Cancel</button>
+  <button onclick="location.href='/collections/<%= @collection.id %>'" class="btn btn-default">Cancel</button>
 </div>
-
