@@ -6,9 +6,9 @@ class Collection < ActiveRecord::Base
 
   def self.random_selection(user)
     if user
-      (Collection.all - user.collections).sample(10)
+      (Collection.all - user.collections).sample(9)
     else
-      Collection.all.sample(10)
+      Collection.all.sample(9)
     end
   end
 
@@ -17,7 +17,5 @@ class Collection < ActiveRecord::Base
     self.user == user
   end
 
-  
+
 end
-
-
